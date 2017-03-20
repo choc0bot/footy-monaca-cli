@@ -1,0 +1,101 @@
+<ons-page ng-controller="setting" modifier="material">
+    <ons-toolbar modifier="material">
+    <div class="left">
+        <ons-toolbar-button ng-click="app.slidingMenu.toggleMenu()" modifier="material"><ons-icon icon="bars"></ons-icon></ons-toolbar-button>
+    </div>
+    <div class="center">Settings</div>
+    </ons-toolbar>
+
+
+  <ons-row class="profile-wrapper" modifier="material">
+    <ons-col width="60px" class="profile-image-wrapper" modifier="material">
+      <img src="{{ userPhoto }}" class="profile-image">
+    </ons-col>
+
+    <ons-col modifier="material">
+      <div class="profile-name">{{ userName }}</div>
+    </ons-col>
+
+  </ons-row>
+  <ons-list modifier="inset" class="settings-list" modifier="material">
+        <ons-list-item class="list__header">
+            General
+        </ons-list-item>
+        <ons-list-item modifier="material">
+          Notifications &nbsp;
+          <label class="switch switch--material">
+          <input type="checkbox" class="switch__input switch--material__input" checked>
+          <div class="switch__toggle switch--material__toggle">
+            <div class="switch__handle switch--material__handle"></div>
+          </div>
+        </label>
+        </ons-list-item>
+
+        <ons-list-item modifier="chevron" onclick="app.slidingMenu.setMainPage('form_email.html', {closeMenu: true})">
+         <div class="list__item__title">Change email</div>
+         <div class="list__item__subtitle">{{ email }}</div>
+        </ons-list-item>
+
+
+        <ons-list-item class="list__header">
+            User
+        </ons-list-item>
+        
+        <ons-list-item modifier="chevron" modifier="tappable" onclick="app.slidingMenu.setMainPage('newphoto.html', {closeMenu: true})">
+          <ons-icon icon="fa-camera" modifier="material"></ons-icon>&nbsp; Change Photo
+        </ons-list-item>
+  
+        <ons-list-item modifier="tappable" onclick="app.slidingMenu.setMainPage('users.html', {closeMenu: true})">
+          <ons-icon icon="fa-sign-out" modifier="material"></ons-icon>&nbsp; Sign out
+        </ons-list-item>
+        
+        <ons-list-item class="list__header">
+            Admin
+        </ons-list-item>
+        
+        <ons-list-item modifier="tappable" ng-click="deleteUser()">
+            <ons-icon icon="fa-trash" modifier="material"></ons-icon>&nbsp; Delete User
+        </ons-list-item>
+    </ons-list>
+  
+</ons-page>
+
+<style>
+.profile-wrapper {
+  padding: 16px 10px 0 10px;
+}
+
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border: inset 1px rgba(0, 0, 0, 0.3);
+}
+
+.profile-name {
+  font-size: 18px;
+  padding: 4px 0 2px 0;
+}
+
+.profile-email {
+  font-size: 15px;
+  opacity: 0.4;
+}
+
+.switch--list-item {
+  margin-right: 0px;
+}
+
+.settings-header {
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 0.4;
+  padding: 10px 0 0px 10px;
+  margin-bottom: -4px;
+}
+
+.settings-list {
+  margin-top: 10px;
+}
+</style>
